@@ -12,3 +12,29 @@ Dream Drive !! みっちー http://dream-drive.net
   * VS-RC003HVシリアル通信資料 (https://www.vstone.co.jp/products/vs_rc003hv/download/VSRC003_serial_manual.pdf)
   * S-RC003HVシリアル通信 C言語サンプルソース (https://www.vstone.co.jp/products/vs_rc003hv/download/SerialSample.cpp)
 * VS-RC003とは (https://www.vstone.co.jp/products/vs_rc003hv/index.html)
+
+## get_memmap関数と、put_memmap関数がすべてです。
+
+####	get_memmap関数
+メモリマップのアドレスを指定して、値を読む関数
+
+* 引数
+  * HANDLE hCom	通信に使用するハンドル
+  * unsigned char map_add 読み出したいメモリマップのアドレス0～255
+
+* 戻り値
+  * メモリマップの値(符号付2バイト)
+
+#### put_memmap関数
+メモリマップのアドレスを指定して、値を書き込む関数
+
+* 引数
+  * HANDLE hCom 通信に使用するハンドル
+  * unsigned char map_add 書き込みたいメモリマップのアドレス0～255
+  * short value 書き込む値(符号付2バイト)
+
+* 戻り値(sendmessageそのまま)
+  * 0	メッセージの送受信に成功
+  * 1	メッセージの送信に失敗
+  * 2	メッセージの受信に失敗
+  * 3	メッセージの送受信に失敗
